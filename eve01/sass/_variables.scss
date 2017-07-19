@@ -1,0 +1,75 @@
+// Theta-G _variables.scss =====================================================
+
+// Update Flag (for cache busting)
+
+$upd: '?f';
+
+
+// Palette Vars ----------------------------------------------------------------
+
+// Content Area Colors
+
+$base-max:                   hsl(0, 0%, 100%);  // white
+$base-lightest:               hsl(0, 0%, 98%);
+$base-lighter:                hsl(0, 0%, 90%);
+$base-light:                  hsl(0, 0%, 75%);
+$base-medium:                 hsl(0, 0%, 50%);  // grey
+$base-dark:                   hsl(0, 0%, 42%);
+$base-darker:                 hsl(0, 0%, 25%);
+$base-darkest:                hsl(0, 0%, 17%);
+$base-min:                     hsl(0, 0%, 0%);  // black
+$base-tint:             hsla(0, 0%, 0%, 0.15);
+$base-tint-dark:         hsla(0, 0%, 0%, 0.5);
+
+$fg-color:                    hsl(0, 0%, 20%);
+$bg-color:                   hsl(0, 0%, 100%);
+
+$stop-medium:              hsl(350, 86%, 50%);
+$stop-light:               hsl(350, 86%, 95%);
+$stop-dark:                hsl(350, 86%, 32%);  // garnet
+$stop-tint:          hsla(350, 86%, 32%, 0.5);
+
+$wait-medium:               hsl(35, 74%, 45%);
+$wait-light:               hsl(50, 100%, 83%);
+$wait-dark:                 hsl(35, 74%, 45%);
+$wait-tint:           hsla(35, 74%, 45%, 0.5);
+
+$go-medium:               hsl(150, 100%, 33%);
+$go-light:                  hsl(84, 72%, 80%);
+$go-dark:                 hsl(120, 100%, 27%);
+$go-tint:           hsla(120, 100%, 27%, 0.5);
+
+$header-bg:                 hsl(192, 6%, 34%);
+$header-fg:                 hsl(192, 6%, 34%);
+$header-accent:             hsl(192, 6%, 34%);
+$header-alt:                hsl(192, 6%, 34%);
+
+$footer-bg:                 hsl(192, 6%, 34%);
+$footer-fg:                 hsl(192, 6%, 34%);
+$footer-accent:             hsl(192, 6%, 34%);
+$footer-alt:                hsl(192, 6%, 34%);
+
+$accent-lightest:          hsl(350, 86%, 95%);
+$accent-lighter:           hsl(350, 86%, 85%);
+$accent-light:             hsl(350, 86%, 65%);
+$accent-medium:            hsl(350, 86%, 50%);
+$accent-dark:              hsl(350, 86%, 40%);
+$accent-darker:            hsl(350, 86%, 32%);  // garnet hsl(349.7, 86.4%, 31.8%)
+$accent-darkest:           hsl(350, 86%, 32%);
+
+$pop-lightest:           hsl(224, 65.3%, 95%);
+$pop-lighter:            hsl(224, 65.3%, 85%);
+$pop-light:              hsl(224, 65.3%, 65%);
+$pop-medium:             hsl(224, 65.3%, 50%);
+$pop-dark:               hsl(224, 65.3%, 35%);
+$pop-darker:             hsl(224, 65.3%, 15%);
+$pop-darkest:           hsl(224, 65.3%, 6.7%);  // angelus deep
+
+$alt-medium:                hsl(20, 82%, 65%);
+$alt-lightest:      lighten($alt-medium, 42%);
+$alt-lighter:       lighten($alt-medium, 26%);
+$alt-light:         lighten($alt-medium, 11%);
+$alt-dark:           darken($alt-medium,  6%);
+$alt-darker:         darken($alt-medium,  6%);
+$alt-darkest:        darken($alt-medium,  6%);
+

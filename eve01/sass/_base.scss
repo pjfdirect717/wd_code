@@ -1,0 +1,387 @@
+// Theta-G _base.scss (no design) ==============================================
+
+@import 'variables';
+
+// Mixins ----------------------------------------------------------------------
+
+/* aspect ratio – .element { @include aspect-ratio(16 9); } */
+@mixin aspect-ratio($ratio: 1 1) {
+    @if length($ratio) > 1 or length($ratio) < 3 {
+        $width: 100%;
+        $paddedheight: percentage(nth($ratio, 2) / nth($ratio, 1));
+        width: $width;
+        height: 0;
+        padding-bottom: $paddedheight;
+    } else {
+        width: 100%;
+        padding-bottom: 4em;
+    }
+}
+
+// Media Query Spot Breakpoints
+@mixin mq($breakPoint) {
+    @if $breakPoint == minidown {
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.25) and (max-width: 23.999em),
+               only screen and (min-device-pixel-ratio: 1.25) and (max-width: 3.999em) { @content; } // under 480 Hi Res 
+    } @else if $breakPoint == smallup {                     
+        @media only screen and (min-width: 24em) { @content; } // 480 up
+    } @else if $breakPoint == medup {
+        @media only screen and (min-width: 48em) { @content; } // 768 up
+    } @else if $breakPoint == ampleup {
+        @media only screen and (min-width: 50em) { @content; } // 800 up
+    } @else if $breakPoint == largeup {
+        @media only screen and (min-width: 60em) { @content; } // 960 up
+    } @else if $breakPoint == maxiup {
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.25) and (min-width: 60em),
+               only screen and (min-device-pixel-ratio: 1.25) and (min-width: 60em) { @content; } // 960 up Hi Res
+    }
+}
+
+
+// Animation -------------------------------------------------------------------
+
+.animated { 
+    -webkit-animation-duration: 0.75s; 
+    animation-duration: 0.75s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+} 
+
+@-webkit-keyframes fadeInDown { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateY(-1em); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+
+@keyframes fadeInDown { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(-1em); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+
+.fadeInDown { 
+    -webkit-animation-name: fadeInDown; 
+    animation-name: fadeInDown; 
+}
+
+// Fonts -----------------------------------------------------------------------
+
+/* P22 Underground */
+
+@font-face {
+    font-family: 'P22 Underground';
+    src:url('../fonts/p22_underground-webfont.eot');
+    src:url('../fonts/p22_underground-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/p22_underground-webfont.woff') format('woff'),
+        url('../fonts/p22_underground-webfont.ttf') format('truetype'),
+        url('../fonts/p22_underground-webfont.svg#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+$heading-font: 'P22 Underground', 'Trebuchet MS', sans-serif;
+
+
+/* Open Sans */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600);
+$regular-font: 'Open Sans', 'Arial', sans-serif;
+
+
+/* Theta-G Icons (includes Casper Icons) */
+
+@font-face {
+    font-family: 'theta-g-icons-v2';
+    src:url('../fonts/theta-g-icons-v2.eot');
+    src:url('../fonts/theta-g-icons-v2.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/theta-g-icons-v2.woff') format('woff'),
+        url('../fonts/theta-g-icons-v2.ttf') format('truetype'),
+        url('../fonts/theta-g-icons-v2.svg#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+$icon-font: 'theta-g-icons-v2', 'Arial', sans-serif;
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: $icon-font;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-decoration: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-theta-g:before        { content: "\e600"; }
+.icon-diamond-bullet:before { content: "\e601"; }
+.icon-paper-plane:before    { content: "\e602"; }
+.icon-trimphone:before      { content: "\e603"; }
+.icon-twitter-bird:before   { content: "\e604"; }
+.icon-postage-stamp:before  { content: "\e605"; }
+.icon-menu-lines:before     { content: "\e606"; }
+.icon-previous-arrow:before { content: "\e607"; }
+.icon-next-arrow:before     { content: "\e608"; }
+.icon-close-x:before        { content: "\e609"; }
+.icon-ghost:before          { content: "\f600"; }
+.icon-feed:before           { content: "\f601"; }
+.icon-twitter:before        { content: "\f602"; font-size: 1.1em; }
+.icon-google-plus:before    { content: "\f603"; }
+.icon-facebook:before       { content: "\f604"; }
+.icon-arrow-left:before     { content: "\f605"; }
+.icon-stats:before          { content: "\f606"; }
+.icon-location:before       { content: "\f607";
+                              margin-left: -3px; /* tracking fix */ }
+.icon-link:before           { content: "\f608"; }
+
+
+/* Library: Micro Clear Fix ------------------------------------------------- */
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are cfed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ .clearfix {
+     *zoom: 1;
+ }
+*/
+
+
+/* Library: Natural Box Model ----------------------------------------------- */
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+
+// Library: Equal-height Columns -----------------------------------------------
+
+/*
+div.layout.ehc { overflow: hidden; }
+div.layout.ehc section.main,
+div.layout.ehc aside {
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+}
+*/
+
+
+// Elements --------------------------------------------------------------------
+
+.hidden { display: none; } // form metadata, semantic extras and debugging
+
+// bold and italic are supplied by faces for now
+* { font-weight: normal; font-style: normal; }
+
+a { text-decoration: none; }
+
+b, strong {
+font-weight: 600;
+}
+
+i, em {
+font-weight: 300;
+font-style: italic;
+}
+
+.linkcolor { color: $accent-medium; }
+
+abbr, acronym {
+cursor: help;
+border-bottom: none !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, pre {
+margin: 0;            // even trailing margin could injure lower down
+padding: 0;           // removes left padding on ULs
+font-size: 1em;       // standardizing em as base unit
+line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: $heading-font; }
+
+ul { list-style: none; }
+
+ul.bullet {
+list-style: disc;
+padding-left: 1.25em;
+}
+
+ol { padding-left: 2em; }
+
+article p,
+article ul,
+article ol { margin-bottom: .75em; }
+
+pre { font-size: .88em; }
+tt { font-size: 1.1em; }
+
+
+fieldset { border: none; margin: 0; padding: 0; }
+
+a {
+    color: $accent-dark;
+}
+
+button, input, input[type=submit], input[type=reset], input[type=search],
+select, select[multiple], textarea {
+outline: none;
+-webkit-appearance: none;
+}
+
+/* Lists -------------------------------------------------------------------- */
+
+ul.style li {
+padding-left: 1.25em;
+margin-bottom: .25em;
+}
+
+ul.style li span {
+float: left;
+font-size: 1.25em;
+margin-left: -1.25em;
+margin-top: -.35em;
+}
+
+#icondemo span {
+display: inline-block;
+width: 49%;
+}
+
+#icondemo [class^="icon-"],
+#icondemo [class*=" icon-"] {
+width: 1.17em;
+display: inline-block;
+font-size: 1.5em;
+margin-right: .1em;
+}
+
+
+// Utilities ===================================================================
+
+.wide-space,
+.hidden  {
+    display: none;
+}
+
+
+//  Palette Style --------------------------------------------------------------
+
+#palette {
+    padding: .75em 1em;
+    background: $base-lighter url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo4NzY0OEE5NkM0NDMxMUU0OUU1MDgxMUI5RDg5RTkxNCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo4NzY0OEE5N0M0NDMxMUU0OUU1MDgxMUI5RDg5RTkxNCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjM4RUU4OTdGQzQ0MjExRTQ5RTUwODExQjlEODlFOTE0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjM4RUU4OTgwQzQ0MjExRTQ5RTUwODExQjlEODlFOTE0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+2oyaHgAAAUhJREFUeNrk2UsSgyAURFG8lan7X2gWYGaZRuF9uoljKPtYiULzGmOc13W9R/F1HMc5Gi66bt7xkL/gf0LT/TOrRqPw36pEo/JCqUKj9BatQKP26chGo/i9zERzZ9BOaO4O3AXNk8E7oHk6wR3NzCRnNLMTXdGsTHZEsxrADU1EACc0UQFc0EQGcEATHUAdTUYAZTRZAVTRZAZQRJMdQA1NRQAlNFUBVNBUBlBAUx2gG10O7ka3gDvRdJ3idaGJahJc0EQ1CS5oopoEFzRRTYILmqgmwQVNVJPggiaqSXBB/1x47Ia+tdLaCX17abkL+tFaegf0482DO3pqt+SMnt4euqKX9sOO6OUCwA0d0ng4ocMqHhd0aKflgA4v8dTRKa2lMjqtplVFp/bSiuj0Il4NXXLyoIQuO2pRQZeeLSmgyw/TutEfAQYAXOrwiKpq2VIAAAAASUVORK5CYII=');
+
+    ul {
+        width: 8em;
+        min-width: 12em;
+        float: left;
+        margin-bottom: 3em;
+        li {
+            display: block;
+            line-height: 2;
+            margin-bottom: .5em;
+            span {
+                border: 1px solid $base-light;
+                display: inline-block;
+                width: 2em;
+                height: 2em;
+                margin: 0 .5em -.75em 0;
+                &.fg-color { background-color: $fg-color; }
+                &.bg-color { background-color: $bg-color; }
+
+                &.base-medium { background-color: $base-medium; }
+                &.base-max { background-color: $base-max; }
+                &.base-lightest { background-color: $base-lightest; }
+                &.base-lighter { background-color: $base-lighter; }
+                &.base-light { background-color: $base-light; }
+                &.base-dark { background-color: $base-dark; }
+                &.base-darker { background-color: $base-darker; }
+                &.base-darkest { background-color: $base-darkest; }
+                &.base-min { background-color: $base-min; }
+                &.base-tint { background-color: $base-tint; }
+                &.base-tint-dark { background-color: $base-tint-dark; }
+
+                &.stop-medium { background-color: $stop-medium; }
+                &.stop-light { background-color: $stop-light; }
+                &.stop-dark { background-color: $stop-dark; }
+                &.stop-tint { background-color: $stop-tint; }
+
+                &.wait-medium { background-color: $wait-medium; }
+                &.wait-light { background-color: $wait-light; }
+                &.wait-dark { background-color: $wait-dark; }
+                &.wait-tint { background-color: $wait-tint; }
+
+                &.go-medium { background-color: $go-medium; }
+                &.go-light { background-color: $go-light; }
+                &.go-dark { background-color: $go-dark; }
+                &.go-tint { background-color: $go-tint; }
+
+                &.header-bg { background-color: $header-bg; }
+                &.header-fg { background-color: $header-fg; }
+                &.header-accent { background-color: $header-accent; }
+                &.header-alt { background-color: $header-alt; }
+
+                &.footer-bg { background-color: $footer-bg; }
+                &.footer-fg { background-color: $footer-fg; }
+                &.footer-accent { background-color: $footer-accent; }
+                &.footer-alt { background-color: $footer-alt; }
+
+                &.accent-medium { background-color: $accent-medium; }
+                &.accent-lightest { background-color: $accent-lightest; }
+                &.accent-lighter { background-color: $accent-lighter; }
+                &.accent-light { background-color: $accent-light; }
+                &.accent-dark { background-color: $accent-dark; }
+                &.accent-darker { background-color: $accent-darker; }
+                &.accent-darkest { background-color: $accent-darkest; }
+
+                &.pop-medium { background-color: $pop-medium; }
+                &.pop-lightest { background-color: $pop-lightest; }
+                &.pop-lighter { background-color: $pop-lighter; }
+                &.pop-light { background-color: $pop-light; }
+                &.pop-dark { background-color: $pop-dark; }
+                &.pop-darker { background-color: $pop-darker; }
+                &.pop-darkest { background-color: $pop-darkest; }
+
+                &.alt-medium { background-color: $alt-medium; }
+                &.alt-lightest { background-color: $alt-lightest; }
+                &.alt-lighter { background-color: $alt-lighter; }
+                &.alt-light { background-color: $alt-light; }
+                &.alt-dark { background-color: $alt-dark; }
+                &.alt-darker { background-color: $alt-darker; }
+                &.alt-darkest { background-color: $alt-darkest; }
+            } // span
+        } // li
+    } // ul
+} // #palette

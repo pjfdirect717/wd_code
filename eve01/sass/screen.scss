@@ -1,0 +1,1219 @@
+// Theta-G screen.scss =========================================================
+
+@import 'normalize';
+@import 'variables';
+@import 'base';
+
+
+// Basic layout ----------------------------------------------------------------
+
+html,
+body {
+    height: 100%; // sticky footer setup
+    background-color: $pop-darkest;
+    background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631788/content/images/2015/04/Waves-by-Angelus.jpg#{$upd}');
+    background-size: 190%;
+    background-position: right -3em;
+    background-repeat: no-repeat;
+    color: $base-max;
+    font-family: $regular-font;
+    font-size: 16px;
+    border-top: 15px solid tan !important; 
+}
+
+html {
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    overflow-y: scroll; // force vertical scrollbar
+}
+
+.tg-layout {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.15);
+    // small screen faux column
+    background-image: url('/assets/img/Faux_column_bitmap.png#{$upd}');
+    background-position: left 45em;
+    background-size:100% 3000%;
+    background-repeat: no-repeat;
+}
+
+.tg-section1 {
+    float: left;
+    width: 60%;
+    padding-top: 3.35em;
+    text-align: center;
+    font-family: $heading-font;
+    color: $base-max;
+    display: none; // revealed in media query sections
+    a {
+        color: $base-max;
+    }
+}
+
+body.home-template {
+    .tg-section1 {
+        display: block;
+    }
+}
+
+.tg-nav-home {
+    float: right;
+    width: 40%;
+    li {
+        width: 100%;
+        float: left; // closes gaps
+    }
+}
+
+.tg-main {
+    clear: both;
+    width: 100%;
+    height: auto;
+    color: $base-min;
+    border-top: 2.5em solid $base-min; // attractive nav padding
+    article {
+        background-color: $base-max; // supplements faux column bitmap
+    }
+}
+
+
+// Company details -------------------------------------------------------------
+
+.company {
+    padding-top: 3.35em;
+    text-align: center;
+    font-family: $heading-font;
+    color: $base-max;
+    a {
+        color: $base-max;
+    }
+    .brand {
+        font-family: $heading-font;
+        font-size: 2.15em;
+        letter-spacing: .02em;
+        color: $base-max;
+        text-shadow: hsla(233.3, 47.4%, 3.7%, 0.1) 1px 1px 1px;
+        margin-bottom: 6%;
+        .icon-diamond-bullet {
+            display: inline-block;
+            position: relative;
+            margin-top: -.33em;
+            width: .69em;
+            margin-left: -.33em; // tracking fix
+        }
+    }
+    h2 {
+        margin-bottom: 4%;
+    }
+    h3,
+    p {
+        margin-bottom: 4%;
+        font-size: 1.07em;
+        letter-spacing: .03em;
+        &.social {
+            margin-bottom: 12%;
+            a {
+                font-size: 2em;
+                line-height: .1;
+            }
+        }
+        &.logo {
+            .icon-theta-g {
+                font-size: 2.25em;
+                line-height: 1;
+            }
+        }
+    }
+} // .company
+
+
+// Navigation ------------------------------------------------------------------
+
+// art shared between thin and home navs
+
+li.nav-home {
+    background-color: $pop-darkest;
+    a {
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631788/content/images/2015/04/Waves-by-Angelus.jpg#{$upd}');
+        // background-color: magenta;
+    }
+}
+li.nav-pictures {
+    background-color: hsl(27, 88%, 70%);
+    background: #f6ac6f;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2YWM2ZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y2YWM2ZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNDZlMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  hsl(27,88%,70%) 0%, hsl(27,88%,70%) 50%, hsl(27,100%,48%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsl(27,88%,70%)), color-stop(50%,hsl(27,88%,70%)), color-stop(100%,hsl(27,100%,48%)));
+    background: -webkit-linear-gradient(top,  hsl(27,88%,70%) 0%,hsl(27,88%,70%) 50%,hsl(27,100%,48%) 100%);
+    background: -o-linear-gradient(top,  hsl(27,88%,70%) 0%,hsl(27,88%,70%) 50%,hsl(27,100%,48%) 100%);
+    background: -ms-linear-gradient(top,  hsl(27,88%,70%) 0%,hsl(27,88%,70%) 50%,hsl(27,100%,48%) 100%);
+    background: linear-gradient(to bottom,  hsl(27,88%,70%) 0%,hsl(27,88%,70%) 50%,hsl(27,100%,48%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6ac6f', endColorstr='#f46e00',GradientType=0 );
+    a {
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631786/content/images/2015/04/Pictures.jpg#{$upd}');
+    }
+}
+li.nav-sound {
+    background-color: hsl(120, 60%, 27.5%);
+    background: #1c701c;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFjNzAxYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzFjNzAxYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMTQ0MTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  hsl(120,60%,27%) 0%, hsl(120,60%,27%) 50%, hsl(120,60%,17%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsl(120,60%,27%)), color-stop(50%,hsl(120,60%,27%)), color-stop(100%,hsl(120,60%,17%)));
+    background: -webkit-linear-gradient(top,  hsl(120,60%,27%) 0%,hsl(120,60%,27%) 50%,hsl(120,60%,17%) 100%);
+    background: -o-linear-gradient(top,  hsl(120,60%,27%) 0%,hsl(120,60%,27%) 50%,hsl(120,60%,17%) 100%);
+    background: -ms-linear-gradient(top,  hsl(120,60%,27%) 0%,hsl(120,60%,27%) 50%,hsl(120,60%,17%) 100%);
+    background: linear-gradient(to bottom,  hsl(120,60%,27%) 0%,hsl(120,60%,27%) 50%,hsl(120,60%,17%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c701c', endColorstr='#114411',GradientType=0 );
+    a {
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631790/content/images/2015/04/Sound.jpg#{$upd}');
+    }
+}
+li.nav-design {
+    background-color: hsl(47, 100%, 45%);
+    background: #e6b400;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U2YjQwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2U2YjQwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmQwNDQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  hsl(47,100%,45%) 0%, hsl(47,100%,45%) 50%, hsl(45,100%,64%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsl(47,100%,45%)), color-stop(50%,hsl(47,100%,45%)), color-stop(100%,hsl(45,100%,64%)));
+    background: -webkit-linear-gradient(top,  hsl(47,100%,45%) 0%,hsl(47,100%,45%) 50%,hsl(45,100%,64%) 100%);
+    background: -o-linear-gradient(top,  hsl(47,100%,45%) 0%,hsl(47,100%,45%) 50%,hsl(45,100%,64%) 100%);
+    background: -ms-linear-gradient(top,  hsl(47,100%,45%) 0%,hsl(47,100%,45%) 50%,hsl(45,100%,64%) 100%);
+    background: linear-gradient(to bottom,  hsl(47,100%,45%) 0%,hsl(47,100%,45%) 50%,hsl(45,100%,64%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6b400', endColorstr='#ffd044',GradientType=0 );
+    a {
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631787/content/images/2015/04/Design.jpg#{$upd}');
+    }
+}
+li.nav-projects {
+    background-color: hsl(19, 50%, 30%);
+    background: #733e26;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzczM2UyNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzczM2UyNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0ZjI5MWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  hsl(19,50%,30%) 0%, hsl(19,50%,30%) 50%, hsl(17,51%,21%) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsl(19,50%,30%)), color-stop(50%,hsl(19,50%,30%)), color-stop(100%,hsl(17,51%,21%)));
+    background: -webkit-linear-gradient(top,  hsl(19,50%,30%) 0%,hsl(19,50%,30%) 50%,hsl(17,51%,21%) 100%);
+    background: -o-linear-gradient(top,  hsl(19,50%,30%) 0%,hsl(19,50%,30%) 50%,hsl(17,51%,21%) 100%);
+    background: -ms-linear-gradient(top,  hsl(19,50%,30%) 0%,hsl(19,50%,30%) 50%,hsl(17,51%,21%) 100%);
+    background: linear-gradient(to bottom,  hsl(19,50%,30%) 0%,hsl(19,50%,30%) 50%,hsl(17,51%,21%) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#733e26', endColorstr='#4f291a',GradientType=0 );
+    a {
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631787/content/images/2015/04/Projects.jpg#{$upd}');
+    }
+}
+
+// portfolio tile navbar
+
+.tg-nav-home {
+    li {
+        width: 100%;
+        display: inline-block;
+        letter-spacing: .02em;
+        a {
+						
+            background-position: right top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: $base-max;
+               -moz-transition: color .3s linear;
+            -webkit-transition: color .3s linear;
+                -ms-transition: color .3s linear;
+                 -o-transition: color .3s linear;
+                    transition: color .3s linear;
+            &:hover {
+                color: hsla(50, 100%, 60%, 1);
+            }
+        }
+        a {
+            display: block;
+            @include aspect-ratio(16 9.05);
+            text-transform: uppercase;
+            position: relative;
+            span {
+                position: absolute;
+                font-family: $heading-font;
+                &.title {
+                    left: .5em;
+                    bottom: 1.3em;
+                    font-size: 1.2em;
+                }
+                &.subtitle {
+                    left: .7em;
+                    bottom: .7em;
+                    font-size: .75em;
+                }
+                &.lim {
+                    display: none;
+                }
+            }
+        }
+    }
+} // .tg-nav-home
+
+
+// thin navbar
+
+.tg-nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 2.5em;
+    background-color: $base-darkest;
+    ul {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        li {
+            float: left;        
+            display: block;
+            width: 21.25%;
+            height: 100%;
+            font-family: $heading-font;
+            line-height: 2.25;
+            text-align: center;
+            overflow: hidden;
+            &.nav-home {
+                width: 15%;
+                margin-top: -.15em;
+                padding-top: .15em;
+                a {
+                    line-height: 2.1;
+                }
+            }
+            &.nav-current {
+                a {
+                    background-image: none;
+                }
+            }
+            a {
+                display: block;
+                background-position: 32% 52%;
+                background-size: 350%;
+                background-repeat: no-repeat;
+                padding-top: .25em;
+                font-size: .82em;
+                line-height: 2.6;
+                text-transform: uppercase;
+                color: $base-max;
+                   -moz-transition: color .3s linear;
+                -webkit-transition: color .3s linear;
+                    -ms-transition: color .3s linear;
+                     -o-transition: color .3s linear;
+                        transition: color .3s linear;
+                .icon-theta-g {
+                    font-size: 1.75em;
+                    line-height: 1.4;
+                }
+                &:hover {
+                    color: hsla(50, 100%, 60%, 1);
+                }
+            }
+        }
+    }
+} // .tg-nav
+
+
+// Homepage --------------------------------------------------------------------
+
+body.home-template {
+
+    .tg-main {
+        border-top: none;
+        .blog {
+            clear: both;
+            background-color: $base-darkest;
+            padding: .35em .5em;
+            font-family: $heading-font;
+            font-size: 1.25em;
+            color: $base-dark;
+            text-transform: uppercase;
+        }
+    }
+} // body.home-template
+
+
+// Articles --------------------------------------------------------------------
+
+article {
+    &.id-1,
+    &.id-2,
+    &.id-3,
+    &.id-4 {
+        .post-title {
+            text-transform: uppercase;
+        }
+    }
+    .post-header,
+    .post-header.no-cover {
+        a,
+        span.inner {
+            display: block;
+            color: $base-max;
+            text-shadow: hsla(0, 0%, 0%, 0.25) 1px 1px 1px;
+            span.title {
+                display: block;
+                padding: .5em .75em;
+                font-size: 1.5em;
+                letter-spacing: .02em;
+            }
+        }
+    }
+
+    .post-header {
+        background-color: $pop-darkest;
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631788/content/images/2015/04/Waves-by-Angelus.jpg#{$upd}');
+        background-position: 65% 14%;
+        background-size: 150% auto;
+        background-repeat: no-repeat;
+        &.no-cover {
+            .post-title { // h1 or h2
+                span {
+                    padding-top: .5em;
+                    padding-bottom: .5em;
+                }            
+            }
+            h1,
+            h2 a {
+                padding-bottom: 3em;
+                background-color: transparent;
+            }
+        }
+        .post-title { // h1 or h2
+            background-color: transparent;
+            background-position: center 10%;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            span {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                padding: .5em 1.15em;
+                font-size: 1.5em;
+                color: $base-max;
+                text-shadow: hsla(0,0,0,0.25) 1px 1px 1px;
+                letter-spacing: .02em;
+            }            
+        }
+        h1,
+        h2 a {
+            @include aspect-ratio(2 1);
+            position: relative;
+        }
+    }
+
+    .post-meta {
+        font-size: .88em;
+        color: $base-dark;
+        text-align: right;
+        time {
+            float: left;
+        }
+        .authorname {
+            padding-right: 1.5em;
+        }
+    }
+
+    .share {
+        a {
+            margin-left: 1em;
+        }
+    }
+
+    footer.post-meta,
+    .post-footer {
+        margin-top: 1em;        
+        border-top: 1px solid $base-light;
+        padding-top: 1.25em;
+    }
+
+    .post-excerpt,
+    .post-content {
+        p {
+            line-height: 1.25;
+        }
+        .figcaption {
+            display: block;
+            margin-top: -.75em;
+            font-size: .88em;
+            margin-bottom: 2em;
+            &.right {
+                text-align: right;
+            }
+        }
+        p.term {
+            font-weight: bold;
+        }
+    }
+
+    .post-excerpt {
+        p {
+            .read-more {
+                display: block;
+                padding-top: 1em;
+            }
+        }
+    }
+
+    .post-wrapper {
+        .post-content {
+            h2 {
+                clear: both;
+                text-transform: uppercase;
+                padding-bottom: .15em;
+                border-bottom: 4px solid $accent-darker;
+                margin: 2em 0 1.5em 0;
+            }
+            p.center {
+                text-align: center;
+            }
+            p.deck {
+                margin-bottom: 1.75em;
+            }
+            p.clear {
+                clear: both;
+            }
+            img {
+                width: 100%;
+                border: 1px solid $base-darker;
+            }
+            a.illo {
+                display: block;
+                width: 37%;
+                float: right;
+                margin: 0 1.5em 0 2%;
+                img {
+                    border: none;
+                }
+            }
+            .signature {
+                margin-top: 1em;
+                width: 15em;
+                height: 6.875em;
+                background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631678/content/images/Peter_sig.svg#{$upd}');
+                background-position: left top;
+                background-size: 100% auto;
+                background-repeat: no-repeat;
+                padding: 5.25em 0 0 3em;
+            }
+        }
+    }
+
+    &.page {
+        .post-content {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    // article content padding
+    section.post-meta {
+        padding-bottom: 2em;
+    }
+    .post-wrapper {
+        padding: 1.75em;
+    }
+
+} // article
+
+
+// Portfolio -------------------------------------------------------------------
+
+
+body.page-portfolio {
+    .tg-layout {
+        .tg-section1 {
+            display: none;
+        }
+        .tg-main {
+            background-color: #e6e6e6;
+            background: #e6e6e6;
+            background: -moz-linear-gradient(left,  hsl(0,0%,90%) 0%, hsl(0,0%,75%) 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsl(0,0%,90%)), color-stop(100%,hsl(0,0%,75%)));
+            background: -webkit-linear-gradient(left,  hsl(0,0%,90%) 0%,hsl(0,0%,75%) 100%);
+            background: -o-linear-gradient(left,  hsl(0,0%,90%) 0%,hsl(0,0%,75%) 100%);
+            background: -ms-linear-gradient(left,  hsl(0,0%,90%) 0%,hsl(0,0%,75%) 100%);
+            background: linear-gradient(to right,  hsl(0,0%,90%) 0%,hsl(0,0%,75%) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#bfbfbf',GradientType=1 );
+        }
+    }
+
+    article {
+        background-color: transparent;
+        .post-wrapper {
+            max-width: 100%;
+            text-align: center;
+        }
+        >p {
+            margin-bottom: 0;        
+        }
+    }
+        
+    i a {
+        font-style: italic;
+    }
+}
+
+// Portfolio art cards
+
+.cards {
+    width: 100%;
+    text-align: center;
+    .card {
+        display: inline-block;
+        width: 10.75em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        margin: 1em;
+        background-color: $base-max;
+        text-align: center;
+        -webkit-box-shadow: 3px 2px 16px 2px rgba(128,128,128,1);
+           -moz-box-shadow: 3px 2px 16px 2px rgba(128,128,128,1);
+                box-shadow: 3px 2px 16px 2px rgba(128,128,128,1);
+        position: relative;
+        span {
+            &.caption {
+                display: block;
+                
+                font-size: .75em;
+            }
+            &.img {
+                display: block;
+                width: 8em;
+                margin:  0 auto .25em auto;             
+                padding-bottom: 8em;
+                background-size: 75%;
+                // background-color: red;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+
+// Portfolio swiper gallery
+
+#swiper-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: none;
+    .swiper-wrapper {
+    z-index: 1001;
+        .swiper-slide {
+            z-index: 1001;
+            padding: 3em 1em 5em 1em;
+            background-image: url('/assets/img/Spinner.gif#{$upd}');
+            background-size: 29px 29px;
+            background-position: center;
+            background-repeat: no-repeat;
+            a {
+                display: none;
+                width: 100%;
+                height: 100%;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: fixed;
+        left: 0em;
+        top: 50%;
+        z-index: 1002;
+        width: 1.2em;
+        height: 1.2em;
+        text-align: center;
+        margin-top: -.6em;
+        z-index: 1003;
+        background: none;
+        color: $base-max;
+        overflow: hidden;
+        font-size: 3em;
+        line-height: .1;
+        text-shadow: 0px 0px 3px #2C347A;
+    }
+    .swiper-button-next {
+        left: auto;
+        right: 0;
+    }
+
+    .icon-close-x {
+        position: fixed;
+        left: 50%;
+        bottom: .5em;
+        z-index: 1002;
+        width: 1.5em;
+        height: 1.5em;
+        margin-left: -.75em;
+        // background-color: hsla(233.3, 47.4%, 15%, 0.25);
+        text-align: center;
+        color: $base-max;
+        font-size: 2em;
+        line-height: 1.45;
+        -webkit-border-radius: .75em;
+                border-radius: .75em;
+        background-clip: padding-box; // stops bg color from leaking outside the border
+        cursor: pointer;
+    }
+}
+
+// camera layout
+
+html.camera {
+    overflow-y: hidden;    
+    .tg-layout {
+        max-width: 100%;
+        background: none;
+    }
+    body {
+        background-color: $base-min;
+        background-image: none;
+    }
+    .tg-main article {
+        margin-left: 0;
+    }
+    .tg-section1,
+    .tg-nav,
+    .tg-main article,
+    .tg-sticky,
+    .tg-footer {
+        display: none;
+    }
+    #swiper-container {
+        display: block;
+    }
+}
+
+
+// Error template --------------------------------------------------------------
+
+.error-template {
+    background-color: $base-lighter;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 3.5em 3.5em;
+    -webkit-box-shadow: inset 10px 10px 40px 2px rgba(0,0,0,0.35);
+       -moz-box-shadow: inset 10px 10px 40px 2px rgba(0,0,0,0.35);
+            box-shadow: inset 10px 10px 40px 2px rgba(0,0,0,0.35);
+}
+
+
+// Footer ----------------------------------------------------------------------
+
+.tg-layout {
+    min-height: 100%;
+	margin-bottom: -4em;
+}
+
+.tg-footer,
+.tg-sticky {
+    clear: both;
+	height: 4em;
+}
+
+.tg-footer {
+    background-color: $accent-darker;
+    position: relative;
+    overflow: hidden;
+    section {
+        position: absolute;
+        left: 1.5em;
+        top: 1.25em;
+        z-index: 2;
+        font-size: .75em;
+        color: $accent-light;
+        a {
+            color: $accent-lighter;
+        }
+    }
+    .icon-theta-g {
+        display: block;
+        position: absolute;
+        right: .1em;
+        top: -.36em;
+        z-index: 1;
+        font-size: 11em;
+        line-height: .25;
+        color: $base-tint;
+    }
+}
+
+
+// Media query layout ==========================================================
+
+// Below 400 hi res ------------------------------------------------------------
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25) and (max-width: 24.999em),
+       only screen and (        min-device-pixel-ratio: 1.25) and (max-width: 24.999em) {
+
+    html,
+    body {
+        font-size: 12px;
+    }
+
+} // End below 400 hi res
+
+
+// 400 up ----------------------------------------------------------------------
+@media only screen and (min-width: 25em) {
+
+// Portfolio art cards
+
+    .cards {
+        .card {
+            width: 10em;
+            padding-top: .5em;
+            padding-bottom: .5em;
+            margin: 1em;
+            span {
+                &.img {
+                    width: 8.75em;
+                    margin:  0 auto .25em auto;             
+                    padding-bottom: 8em;
+                    background-size: 75%;
+                    // background-color: red;
+                }
+            }
+        }
+    }
+
+} // End 400 up
+
+
+// 640 up ----------------------------------------------------------------------
+@media only screen and (min-width: 40em) {
+
+    .tg-section1 {
+        padding-top: 6.25em;
+    }
+
+    article {
+        .post-header {
+            &.no-cover {
+                .post-title { // h1 or h2
+                    span {
+                        font-size: 1.75em;
+                        padding-top: .3em;
+                        padding-bottom: .3em;
+                    }            
+                }
+            }
+            .post-title { // h1 or h2
+                span {
+                    font-size: 1.75em  
+                }            
+            }
+        }
+        .post-wrapper {
+            .post-content {
+                p.deck {
+                    margin-bottom: 2.5em;
+                }
+                p.term {
+                    font-weight: normal;
+                    clear: both;
+                    float: left;
+                    width: 31%;
+                    margin-right: 2%;
+                }
+                p.def {
+                    float: left;
+                    width: 67%;
+                    margin-bottom: 1.65em;
+                }
+                p.right {
+                    width: 50%;
+                    float: right;
+                    margin-left: 1em;                
+                }
+                a.illo {
+                    width: 26%;
+                }
+            }
+        }
+    }
+
+} // End 640 up
+
+
+// 768 up ----------------------------------------------------------------------
+@media only screen and (min-width: 48em) {
+
+    html,
+    body {
+        background-size: 150%;
+        background-position: right -3em;
+    }
+
+    .tg-layout {
+        background-image: url('/assets/img/Faux_column_vector.svg#{$upd}');
+        background-position: left top;
+        background-size: 100%;
+        background-repeat: repeat-y;
+    }
+
+    .tg-section1 {
+        width: 37%;
+        display: block;
+    }
+
+    .tg-nav-home {
+        width: 63%;
+        li {
+            width: 50%;
+            float: left; // closes gaps
+        }
+    }
+
+    .tg-main {
+        clear: none;
+        margin-left: 37%;
+        width: auto;
+        border-top: 2.5em solid $base-min; // attractive nav padding
+        header.blog {
+            padding: .75em .5em;
+        }
+        article {
+            background-color: transparent; // remove supplemental white
+            .post-wrapper {
+                .post-content {
+                    p.deck {
+                        margin-bottom: 1.75em;
+                    }
+                }
+            }
+        }
+    }
+
+    .tg-nav {
+        width: 63%;
+        ul {
+            li {
+                line-height: 2.25;
+                width: 25%;
+                &.nav-home {
+                    display: none;  // no .icon-theta-g
+
+                }
+                a {
+                    padding-top: .2em;
+                    font-size: 1em;
+                    line-height: 2.1;
+                }
+                .icon-diamond-bullet {
+                    display: inline-block;
+                    line-height: 2.1;
+                    font-size: 1.5em;
+                    margin-top: -.55em;
+                    width: .69em;
+                    margin-left: -.33em; // tracking fix
+                }
+            }
+        }
+    }
+
+    .tg-section1 {
+        .inner {
+            p {
+                &.logo {
+                    position: fixed;
+                    left: 0;
+                    bottom: 6%;
+                    z-index: 20;
+                    width: 37%;
+                }
+            }
+        }
+    }
+
+    .cards {
+        .card {
+            width: 13.5em;
+            padding-top: .5em;
+            padding-bottom: .5em;
+            margin: 1em;
+            span {
+                &.img {
+                    width: 10.5em;
+                    margin:  0 auto .25em auto;             
+                    padding-bottom: 10.5em;
+                    background-size: 75%;
+                    // background-color: red;
+                }
+            }
+        }
+    }
+
+    #swiper-container {
+        .swiper-wrapper {
+            .swiper-slide {
+                padding: 5em 5em 7em 5em;
+            }
+        }
+    }
+
+    // full-width exceptions (only body.page-portfolio for now)
+
+    body.page-portfolio {
+
+        .tg-main {
+            clear: none;
+            margin-left: 0;
+        }
+
+
+        .tg-nav {
+            width: 100%;
+            ul {
+                li {
+                    width: 15.75%;
+                    &.nav-home {
+                        display: block;
+                        width: 37%;
+                        a {
+                            width: 100%;
+                            height: 2.25em;
+                            overflow: hidden;
+                            position: relative;
+                            .icon-theta-g {
+                                position: absolute;
+                                left: .65em;
+                                top: 0;
+                            }
+                            .hidden.brand {
+                                color: inherit;
+                                display: inline;
+                                position: absolute;
+                                left: 2.85em;
+                                top: -.08em;
+                                font-size: 1.25em;
+                                text-transform: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        article {
+            .post-header.no-cover {
+                .post-title { // h1 or h2
+                    span {
+                        padding-left: .65em;
+                        padding-right: .65em;
+                    }                    
+                }
+            }
+        }
+
+        .tg-section1 {
+            display: none;
+        }
+
+    } // body.page-portfolio
+
+} // End 768 up
+
+// low res fix
+
+@media only screen and (min-width: 48em)
+                   and (-webkit-max-device-pixel-ratio : 1),
+       only screen and (min-width: 48em)
+                   and (        max-device-pixel-ratio : 1) {
+    .tg-layout {
+        background-position: 1px top;
+    }
+} // End 768 up low res fix
+
+
+// 960 lo res up ---------------------------------------------------------------
+@media only screen and (min-width: 60em)
+                   and (-webkit-max-device-pixel-ratio : 1),
+       only screen and (min-width: 60em)
+                   and (        max-device-pixel-ratio : 1) {
+
+    #swiper-container {
+        .icon-close-x {
+            left: auto;
+            right: .2em;
+            bottom: auto;
+            top: .2em;
+        }
+    }
+
+} // End 960 lo res up
+
+
+// 960 up ----------------------------------------------------------------------
+@media only screen and (min-width: 60em) {
+
+    article {
+        .post-wrapper {
+        }
+    }
+
+    #swiper-container {
+        .swiper-wrapper {
+            .swiper-slide {
+                padding: 4em 10em 7em 10em;
+            }
+        }
+    }
+
+    .tg-section1 {
+        padding-top: 8.5em;
+        .inner {
+            font-size: 1.25em;
+        }
+    }
+    
+    // article content padding
+    article {
+        .post-header {
+            .post-title { // h1 or h2
+                span {
+                    padding-left: 2.25em;
+                    padding-right: 2.25em;
+                }                    
+            }
+            &.no-cover {
+                .post-title { // h1 or h2
+                    span {
+                        padding-left: .65em;
+                        padding-right: .65em;
+                    }                    
+                }
+            }
+        }
+        section.post-meta {
+            padding-bottom: 2em;
+        }
+        .post-wrapper {
+            padding: 3em 4em;
+        }
+    }
+
+    .cards {
+        .card {
+            width: 17.25em;
+            padding-top: .5em;
+            padding-bottom: .5em;
+            margin: 1em;
+            span {
+                &.img {
+                    width: 14em;
+                    margin:  0 auto .25em auto;             
+                    padding-bottom: 14em;
+                    background-size: 75%;
+                    // background-color: red;
+                }
+            }
+        }
+    }
+
+} // End 960 up
+
+
+// 1440 up HDTV ----------------------------------------------------------------
+@media only screen and (min-width: 90em)
+                   and (-webkit-max-device-pixel-ratio : 1),
+       only screen and (min-width: 90em)
+                   and (        max-device-pixel-ratio : 1) {
+
+    html,
+    body {
+        background-color: $pop-darkest;
+        background-image: url('https://res.cloudinary.com/theta-g/image/upload/v1431631788/content/images/2015/04/Waves-by-Angelus.jpg#{$upd}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .tg-layout {
+        width: 90em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tg-nav {
+        width: 90em;
+        left: 50%;
+        margin-left: -45em;
+        background-color: transparent;
+        ul {
+            padding-left: 37%;
+        } 
+    }
+
+    .tg-section1 {
+        .inner {
+            p {
+                &.logo {
+                    width: 24.88em;
+                    left: 50%;
+                    margin-left: -33.63em;
+                }
+            }
+        }
+    }
+
+    .tg-footer {
+        width: 90em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    // Full-width exceptions (only body.page-portfolio for now)
+
+    body.page-portfolio {
+
+        .tg-nav {
+            width: 90em;
+            left: 50%;
+            margin-left: -45em;
+            background-color: transparent;
+            ul {
+                padding-left: 0;
+            } 
+        }
+
+        .tg-layout {
+            width: 90em;        
+            border-left: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    }
+
+} // End HDTV
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

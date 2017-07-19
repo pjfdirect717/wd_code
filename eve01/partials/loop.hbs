@@ -1,0 +1,92 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+{{!-- TG mod
+<div class="extra-pagination inner">
+    {{pagination}}
+</div>
+--}}
+
+{{! This is the post loop - each post will be output using this markup }}
+
+{{#foreach posts}}
+  {{#if featured}}
+<article class="{{post_class}} id-{{id}}">
+    <header class="post-header{{^if image}} no-cover{{/if}}">
+        <h1 class="post-title"{{#if image}} style="background-image:url('{{image}}')"{{/if}}>
+            {{!-- <a href="{{url}}"><span>{{title}}</span></a> --}}
+            <span class="title">{{title}}</span>
+        </h1>
+    </header>
+    <div class="post-wrapper">
+        <section class="post-excerpt">
+            {{content}}
+            {{!--
+            <p>{{excerpt words="64"}}...<a class="read-more" href="{{url}}">Read More &raquo;</a></p>
+            --}}
+        </section>
+        <footer class="post-meta">
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+
+                <section class="share loopshare">
+                    <span>Share</span> 
+                    <a class="icon-twitter" href="https://twitter.com/share?text={{encode meta_title}}&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                        <span class="hidden">Twitter</span>
+                    </a>
+                    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                        <span class="hidden">Facebook</span>
+                    </a>
+                </section>
+
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES * * */
+                    var disqus_shortname = 'theta-g';
+    
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the
+                <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </footer>
+    </div>
+</article>
+  {{/if}}
+{{/foreach}}
+
+{{#foreach posts}}
+  {{^if featured}}
+<article class="{{post_class}} id-{{id}}">
+    <header class="post-header{{^if image}} no-cover{{/if}}">
+        <h2 class="post-title"{{#if image}} style="background-image:url('{{image}}')"{{/if}}>
+            <a href="{{url}}"><span class="title">{{title}}</span></a>
+        </h2>
+    </header>
+    <div class="post-wrapper">
+        <section class="post-excerpt">
+            {{content}}
+            {{!--
+            <p>{{excerpt words="64"}}...<a class="read-more" href="{{url}}">Read More &raquo;</a></p>
+            --}}
+        </section>
+{{!-- TG mod
+        <footer class="post-meta">
+            {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
+            {{author}}
+            {{tags prefix=" on "}}
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </footer>
+--}}
+    </div>
+</article>
+  {{/if}}
+{{/foreach}}
+
+{{! Previous/next page links - displayed on every page }}
+{{!-- TG mod
+{{pagination}}
+--}}

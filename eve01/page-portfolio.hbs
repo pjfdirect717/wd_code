@@ -1,0 +1,110 @@
+{{!< default}}
+
+{{! This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+<article class="{{post_class}} id-{{id}}">
+    <header class="post-header{{^if image}} no-cover{{/if}}">
+        <h1 class="post-title"{{#if image}} style="background-image:url('{{image}}')"{{/if}}>
+            <span class="title">{{title}}</span>
+        </h1>
+    </header>
+
+        <div class="post-content clearfix" style="padding: 1.75em 1.75em 0 1.75em; text-align: center;">
+            {{content}}
+        </div>
+
+    <section class="cards">
+        <div class="card"><a href="#" id="1"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631736/content/images/portfolio/NH2_user_journey_th.jpg')"></span>
+        <span class="caption">Mobile App User Journey</span></a>
+        </div>
+        <div class="card"><a href="#" id="2"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631728/content/images/portfolio/Flat_mocks_iPad_v01_th.jpg')"></span>
+        <span class="caption">iPad Mock</span></a>
+        </div>
+        <div class="card"><a href="#" id="3"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/Photo_wires_3_th.jpg')"></span>
+        <span class="caption">Photo Gallery Wires</span></a>
+        </div>
+        <div class="card"><a href="#" id="4"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631727/content/images/portfolio/AgentVOW_th.jpg')"></span>
+        <span class="caption">ZendPHP Homepage</span></a>
+        </div>
+        <div class="card"><a href="#" id="5"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631732/content/images/portfolio/Multiuser_wires_0.9_th.jpg')"></span>
+        <span class="caption">Multi-User Wires</span></a>
+        </div>
+        <div class="card"><a href="#" id="6"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631746/content/images/portfolio/NuHabitat_palette_v3_th.jpg')"></span>
+        <span class="caption">Colour Palette</span></a>
+        </div>
+        <div class="card"><a href="#" id="7"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/NuHabitat_Business_Cards_th.jpg')"></span>
+        <span class="caption">Business Cards</span></a>
+        </div>
+        <div class="card"><a href="#" id="8"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631739/content/images/portfolio/NuHabitat_sticker_mocks_3_numbered_th.jpg')"></span>
+        <span class="caption">Promo Stickers</span></a>
+        </div>
+        <div class="card"><a href="#" id="9"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631732/content/images/portfolio/GoodLife_th.jpg')"></span>
+        <span class="caption">Property Listing</span></a>
+        </div>
+        <div class="card"><a href="#" id="10"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631730/content/images/portfolio/Metro_PF_demo_th.jpg')"></span>
+        <span class="caption">Mobile News Mock</span></a>
+        </div>
+        <div class="card"><a href="#" id="11"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631745/content/images/portfolio/Nino_th.jpg')"></span>
+        <span class="caption">WordPress Homepage</span></a>
+        </div>
+        <div class="card"><a href="#" id="12"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631745/content/images/portfolio/ZAM_user_journey_v1_th.jpg')"></span>
+        <span class="caption">User Journey</span></a>
+        </div>
+        <div class="card"><a href="#" id="13"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631743/content/images/portfolio/ZAM_mock_rev01_th.jpg')"></span>
+        <span class="caption">Pin Site Mock V1</span></a>
+        </div>
+        <div class="card"><a href="#" id="14"><span class="img" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631746/content/images/portfolio/ZAM_mock_rev06_th.jpg')"></span>
+        <span class="caption">Pin Site Mock V6</span></a>
+        </div>
+    </section>
+
+    <p>&nbsp;</p>
+</article>
+{{/post}}
+
+<!-- Slider main container -->
+<div class="swiper-container" id="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631737/content/images/portfolio/NH2_user_journey.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631737/content/images/portfolio/NH2_user_journey.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/Flat_mocks_iPad_v01.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/Flat_mocks_iPad_v01.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631747/content/images/portfolio/Photo_wires_3.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631747/content/images/portfolio/Photo_wires_3.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631729/content/images/portfolio/AgentVOW.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631729/content/images/portfolio/AgentVOW.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631739/content/images/portfolio/Multiuser_wires_0.9.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631739/content/images/portfolio/Multiuser_wires_0.9.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/NuHabitat_palette_v3.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631741/content/images/portfolio/NuHabitat_palette_v3.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631738/content/images/portfolio/NuHabitat_Business_Cards.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631738/content/images/portfolio/NuHabitat_Business_Cards.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631747/content/images/portfolio/NuHabitat_sticker_mocks_3_numbered.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631747/content/images/portfolio/NuHabitat_sticker_mocks_3_numbered.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631733/content/images/portfolio/GoodLife.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631733/content/images/portfolio/GoodLife.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631738/content/images/portfolio/Metro_PF_demo.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631738/content/images/portfolio/Metro_PF_demo.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631740/content/images/portfolio/Nino.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631740/content/images/portfolio/Nino.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631748/content/images/portfolio/ZAM_user_journey_v1.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631748/content/images/portfolio/ZAM_user_journey_v1.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631752/content/images/portfolio/ZAM_mock_rev01.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631752/content/images/portfolio/ZAM_mock_rev01.jpg')"></a></div>
+        <div class="swiper-slide"><a href="https://res.cloudinary.com/theta-g/image/upload/v1431631752/content/images/portfolio/ZAM_mock_rev06.jpg" style="background-image:url('https://res.cloudinary.com/theta-g/image/upload/v1431631752/content/images/portfolio/ZAM_mock_rev06.jpg')"></a></div>
+    </div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev icon-previous-arrow"></div>
+    <div class="swiper-button-next icon-next-arrow"></div>
+
+    <div class="icon-close-x" id="swiper-close"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

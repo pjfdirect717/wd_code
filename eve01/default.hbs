@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    {{!-- <base target="_parent"> --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True" />
+    {{!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /> --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="rights" content="Copyright 2012-{{date format="YYYY"}} Theta-G, Ltd. Registered in England and Wales No. 08249234">
+    <meta name="doc-class" content="Living Document">
+    <meta name="Rating" content="General">
+
+    {{! Page Meta }}
+    <title>{{#is "home"}}Theta-G | Creative Agency{{else}}{{post.title}} | Theta-G{{/is}}</title>
+    <meta name="author" content="Theta-G, Ltd" />
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="keywords" content="digital,web,sites,websites,apps,webapps,print,brochures,business,cards,packaging,audio,music,podcast,streaming,video,film,cinema,dvd" />
+
+    <meta name="apple-mobile-web-app-title" content="Theta-G" />
+
+    <meta property="og:description" content="A creative agency producing digital projects for web, print, audio and video. Director: Peter Fagan" />
+    <meta property="og:image" content="//theta-g.com/assets/img/100facebook.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Theta-G | Creative Agency" />
+    <meta property="og:url" content="http://theta-g.com/" />
+
+    {{!-- <link href="https://plus.google.com/113295536744548176597" rel="publisher" /> --}}
+
+    {{! Styles'n'Scripts }}
+    <script type="text/javascript">
+    var currentMillisecond = new Date().getTime(); // For Temporary CSS Cache Bust
+    document.write('<link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}&m=' +currentMillisecond+'" />');
+    </script>
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset 'css/screen.css'}}" /> -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.6/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.6/js/swiper.min.js"></script>
+
+    <link rel="apple-touch-icon" href="/assets/img/icons/060applephone.png">
+    <link rel="apple-touch-icon" href="/assets/img/icons/060applephone@2x.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/assets/img/icons/060applephone@3x.png" sizes="180x180">
+    <link rel="apple-touch-icon" href="/assets/img/icons/076applepad.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/assets/img/icons/076applepad@2x.png" sizes="152x152">
+
+    <link rel="shortcut icon" href="/assets/img/icons/016favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/img/icons/016favicon.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/assets/img/icons/032favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/img/icons/048android-ms.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="/assets/img/icons/096android-ms.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/assets/img/icons/128android.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="/assets/img/icons/160ms.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/assets/img/icons/192android-ms.png" sizes="192x192">
+    <meta name="msapplication-TileImage" content="/assets/img/icons/144msalpha.png">
+    <meta name="msapplication-config" content="/assets/img/icons/browserconfig.xml">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/assets/img/icons/manifest.json">
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}} nav-closed">
+    <div class="tg-layout">
+
+        <section class="tg-section1 company">
+            <div class="inner">
+                {{!-- {{@blog.title}} --}}
+            {{^is "home"}}
+                <h1 class="brand">
+            {{else}}
+                <h1 class="brand page-title animated fadeInDown">
+            {{/is}}
+                <a href="/">Theta<span class="hidden">-</span><span class="icon-diamond-bullet"></span>G</a>
+                </h1>
+                <h2>Creative Agency{{!-- @blog.description --}}</h2>
+                <p><span class="hidden">The email address starts
+                with </span>dev<span class="hidden"> which is followed by
+                an </span>@<span class="hidden"> symbol and then
+                the domain name </span>theta-g.com</p>
+                <p>London
+                <span class="hidden">telephone, beginning with the 2-number mobile
+                prefix</span>07<span class="hidden">
+                and followed by the 9 digits </span>508 190679</p>
+                <p class="social"><a href="https://twitter.com/PeterTheta" class="icon-twitter-bird"></a></p>
+                <p class="logo"><a href="/" class="icon-theta-g" alt="home" title="home"></a></p>
+            </div>
+        </section>
+
+        {{navigation}}
+
+        <main class="tg-main" id="main" role="main">
+            {{! Everything else gets inserted here }}
+            {{{body}}}
+        </main>
+
+        <div class="tg-sticky"></div>
+    </div>{{! .tg-layout }}
+
+    <footer class="tg-footer clearfix">
+        <section class="copyright">
+        {{!-- TG mod <a href="{{@blog.url}}"></a> --}}
+        &copy; 2012-{{date format="YYYY"}} {{@blog.title}} Ltd.
+        &nbsp;<a href="/about">Peter Fagan,</a> Director<br>
+        Registered in England and Wales No.&nbsp;08249234
+        </section>
+        {{!-- TG mod 
+        <section class="poweredby">Proudly published with </span><a href="https://ghost.org">Ghost</a></section>
+        --}}
+        <span class="icon-theta-g"></span>
+    </footer>
+
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+    {{! disqus }}
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'theta-g';
+    
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

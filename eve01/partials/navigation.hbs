@@ -1,0 +1,42 @@
+{{^is "home"}}
+
+    <div class="tg-nav">
+        <a href="#" class="nav-close">
+            <span class="hidden">Close</span>
+        </a>
+        <ul>
+                <li class="nav-home" role="presentation"><a href="/"><span class="icon-theta-g"></span><span class="hidden brand">Theta<span class="hidden">-</span><span class="icon-diamond-bullet"></span>G</span></a></li>            
+            {{#foreach navigation}}
+                <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
+            {{/foreach}}
+        </ul>
+        {{!-- TG mod <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a> --}}
+    </div>
+    {{! TG mod <span class="nav-cover"></span> }}
+
+{{else}}
+
+    {{! The big featured header }}
+    <nav class="tg-nav-home">
+        <ul class="clearfix">
+            <li class="nav-pictures"><a href="/pictures">
+                <span class="title">Pictures</span><span class="lim">:</span>
+                <span class="subtitle">Shoot / Post</span>
+            </a></li>
+            <li class="nav-sound"><a href="/sound">
+                <span class="title">Sound</span>
+                <span class="subtitle">& Podcast</span>
+            </a></li>
+            <li class="nav-design"><a href="/design">
+                <span class="title">Design</span><span class="lim">:</span>
+                <span class="subtitle">Software / Print</span>
+            </a></li>
+            <li class="nav-projects"><a href="/projects">
+                <span class="title">Projects</span><span class="lim">:</span>
+                <span class="subtitle">Management</span>
+            </a></li>
+
+        </ul>
+    </nav>
+
+{{/is}}
