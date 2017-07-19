@@ -1,0 +1,74 @@
+// _base.scss ==================================================================
+
+// Update Flag – when the letter is changed it cache busts css urls eg.
+// url('../images/profile-placeholder.jpg#{$upd}')
+
+$upd: '?h';
+
+
+// Palette ---------------------------------------------------------------------
+
+// range keywords, dark to light (the numbers can continue):
+// min  dk2  dk1  dk  med  lt  lt1  lt2  max
+
+// actual black & white use css keywords 'black' & 'white'
+
+// foreground & background
+   $fg-lt3:                #cdcdcd; // hsla(197, 5%, 35%, 1);
+   $fg-lt2:  hsla(197, 5%, 50%, 1);
+   $fg-lt:   hsla(197, 5%, 35%, 1);
+   $fg-med:  hsla(197, 5%, 28%, 1); // #44494b light black
+// $bg-max:                  white; // default browser style
+   $bg-dk2:  hsla(197, 5%, 17%, 1); // #292c2e footer dark gray
+
+// base shades are often greys but don't have to be
+
+$base-tint-lt3:      hsla(48, 23%, 92%, 1);
+$base-tint-lt2:  hsla(307, 10%, 55%, 0.23);
+$base-tint-lt:       hsla(48, 17%, 85%, 1);
+$base-tint:      hsla(307, 31%, 55%,  0.6);
+$base-lt:        hsla(307, 31%, 55%,    1);
+
+// semi-transparent tints
+// $base-t-med:     hsla(0, 0%, 0%, 0.15);
+// $tint-med:    hsla(200, 50%, 50%, 0.5);
+
+// accent colour: often the link colour
+
+// accent - purple
+$acc-tint:   hsla(307, 31%, 55%, 0.6); // 60% lt
+$acc-lt4:      hsla(312, 14%, 93%, 1); // #efeaee
+$acc-lt3:      hsla(310, 12%, 90%, 1); // #e8e2e7
+$acc-lt2:      hsla(302, 23%, 79%, 1); // #d5bcd4
+$acc-lt-muted: hsla(304, 11%, 49%, 1); // #8b6f89
+$acc-lt:       hsla(307, 31%, 55%, 1); // #b068a8
+$acc-dk:       hsla(309, 54%, 26%, 1); // #671f5c
+
+// pop colour – stronger companion to the accent colour
+
+// pop - red
+$pop-tint:  hsla(359, 69%, 47%, 0.6); // 60% lt
+$pop-lt:    hsla(354, 78%, 70%,   1); // #ee7581
+$pop-dk:    hsla(359, 69%, 47%,   1); // #cd2527
+
+// alt colour - often completes a tri-colour palette
+
+// alt - blue
+$alt-tint:  hsla(223, 39%, 50%, 0.6); // 60% dk
+$alt-lt3:                    #ebeeef; // reused noo colour
+$alt-lt2:   hsla(220, 49%, 85%,   1); // #98afdc
+$alt-lt:    hsla(220, 49%, 73%,   1); // #98afdc
+$alt-med:     hsla(217, 63%, 62%, 1); // 6190db
+$alt-dk:    hsla(223, 39%, 50%,   1); // #4f6ab1
+
+// calculated colours
+// $alt-lt2:  lighten($alt-clr, 15%);
+// $alt-dk2:  darken($alt-clr,  15%);
+
+// control colours - for confirmations, errors, etc. often red, yellow and green
+
+$stop:          hsl(350, 86%, 50%);
+$wait-lt:   hsla(50, 100%, 85%, 1);
+$wait-med:       hsl(35, 74%, 45%);
+$go-lt:                    #dff0d8;
+$go-med:                   #d6e9c6;
